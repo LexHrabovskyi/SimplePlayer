@@ -3,15 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		A96F2A6DE444A0587FDB559D /* Pods_SimplePlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F901AEC50216A360591CADB /* Pods_SimplePlayer.framework */; };
+		D79A657A23BF8BEC000F3B09 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A657923BF8BEC000F3B09 /* MainView.swift */; };
+		D79A657C23BF8D4F000F3B09 /* AddSubviewsExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A657B23BF8D4F000F3B09 /* AddSubviewsExtention.swift */; };
+		D79A657F23BF8FAE000F3B09 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A657E23BF8FAE000F3B09 /* MainViewModel.swift */; };
 		D7DBC66A23BF881B006FB0E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DBC66923BF881B006FB0E7 /* AppDelegate.swift */; };
-		D7DBC66C23BF881B006FB0E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DBC66B23BF881B006FB0E7 /* SceneDelegate.swift */; };
-		D7DBC66E23BF881B006FB0E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DBC66D23BF881B006FB0E7 /* ViewController.swift */; };
-		D7DBC67123BF881B006FB0E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7DBC66F23BF881B006FB0E7 /* Main.storyboard */; };
+		D7DBC66E23BF881B006FB0E7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DBC66D23BF881B006FB0E7 /* MainViewController.swift */; };
 		D7DBC67323BF881D006FB0E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7DBC67223BF881D006FB0E7 /* Assets.xcassets */; };
 		D7DBC67623BF881D006FB0E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7DBC67423BF881D006FB0E7 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -20,11 +21,12 @@
 		1DAADD85CF671FA3C89109FE /* Pods-SimplePlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplePlayer.debug.xcconfig"; path = "Target Support Files/Pods-SimplePlayer/Pods-SimplePlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		6F901AEC50216A360591CADB /* Pods_SimplePlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimplePlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E4D74D26F4E7B893044D5D /* Pods-SimplePlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplePlayer.release.xcconfig"; path = "Target Support Files/Pods-SimplePlayer/Pods-SimplePlayer.release.xcconfig"; sourceTree = "<group>"; };
+		D79A657923BF8BEC000F3B09 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D79A657B23BF8D4F000F3B09 /* AddSubviewsExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubviewsExtention.swift; sourceTree = "<group>"; };
+		D79A657E23BF8FAE000F3B09 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		D7DBC66623BF881B006FB0E7 /* SimplePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DBC66923BF881B006FB0E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D7DBC66B23BF881B006FB0E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D7DBC66D23BF881B006FB0E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D7DBC67023BF881B006FB0E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D7DBC66D23BF881B006FB0E7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D7DBC67223BF881D006FB0E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7DBC67523BF881D006FB0E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7DBC67723BF881D006FB0E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +52,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D79A657623BF8B96000F3B09 /* Main view controller */ = {
+			isa = PBXGroup;
+			children = (
+				D7DBC66D23BF881B006FB0E7 /* MainViewController.swift */,
+				D79A657E23BF8FAE000F3B09 /* MainViewModel.swift */,
+				D79A657923BF8BEC000F3B09 /* MainView.swift */,
+			);
+			path = "Main view controller";
+			sourceTree = "<group>";
+		};
+		D79A657D23BF8DAD000F3B09 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				D79A657B23BF8D4F000F3B09 /* AddSubviewsExtention.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		D7DBC65D23BF881B006FB0E7 = {
 			isa = PBXGroup;
 			children = (
@@ -72,9 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				D7DBC66923BF881B006FB0E7 /* AppDelegate.swift */,
-				D7DBC66B23BF881B006FB0E7 /* SceneDelegate.swift */,
-				D7DBC66D23BF881B006FB0E7 /* ViewController.swift */,
-				D7DBC66F23BF881B006FB0E7 /* Main.storyboard */,
+				D79A657623BF8B96000F3B09 /* Main view controller */,
+				D79A657D23BF8DAD000F3B09 /* Extentions */,
 				D7DBC67223BF881D006FB0E7 /* Assets.xcassets */,
 				D7DBC67423BF881D006FB0E7 /* LaunchScreen.storyboard */,
 				D7DBC67723BF881D006FB0E7 /* Info.plist */,
@@ -88,7 +107,6 @@
 				1DAADD85CF671FA3C89109FE /* Pods-SimplePlayer.debug.xcconfig */,
 				76E4D74D26F4E7B893044D5D /* Pods-SimplePlayer.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -130,7 +148,7 @@
 				};
 			};
 			buildConfigurationList = D7DBC66123BF881B006FB0E7 /* Build configuration list for PBXProject "SimplePlayer" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -154,7 +172,6 @@
 			files = (
 				D7DBC67623BF881D006FB0E7 /* LaunchScreen.storyboard in Resources */,
 				D7DBC67323BF881D006FB0E7 /* Assets.xcassets in Resources */,
-				D7DBC67123BF881B006FB0E7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,23 +224,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7DBC66E23BF881B006FB0E7 /* ViewController.swift in Sources */,
+				D79A657F23BF8FAE000F3B09 /* MainViewModel.swift in Sources */,
+				D79A657C23BF8D4F000F3B09 /* AddSubviewsExtention.swift in Sources */,
+				D7DBC66E23BF881B006FB0E7 /* MainViewController.swift in Sources */,
+				D79A657A23BF8BEC000F3B09 /* MainView.swift in Sources */,
 				D7DBC66A23BF881B006FB0E7 /* AppDelegate.swift in Sources */,
-				D7DBC66C23BF881B006FB0E7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D7DBC66F23BF881B006FB0E7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D7DBC67023BF881B006FB0E7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D7DBC67423BF881D006FB0E7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -357,6 +368,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CH744BWJLN;
 				INFOPLIST_FILE = SimplePlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -364,7 +376,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.lexhrabovskyi.SwiftUIPlayer.SimplePlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -376,6 +388,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CH744BWJLN;
 				INFOPLIST_FILE = SimplePlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -383,7 +396,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.lexhrabovskyi.SwiftUIPlayer.SimplePlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

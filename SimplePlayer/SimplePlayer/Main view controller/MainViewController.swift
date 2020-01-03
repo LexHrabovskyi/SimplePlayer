@@ -7,9 +7,18 @@
 //
 
 import UIKit
+import Combine
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
+    private var contentView = MainView()
+    private var viewModel = MainViewModel()
+    
+    override func loadView() {
+        super.loadView()
+        view = contentView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
