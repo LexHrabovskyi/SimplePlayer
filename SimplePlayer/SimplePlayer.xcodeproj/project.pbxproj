@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A96F2A6DE444A0587FDB559D /* Pods_SimplePlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F901AEC50216A360591CADB /* Pods_SimplePlayer.framework */; };
 		D7DBC66A23BF881B006FB0E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DBC66923BF881B006FB0E7 /* AppDelegate.swift */; };
 		D7DBC66C23BF881B006FB0E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DBC66B23BF881B006FB0E7 /* SceneDelegate.swift */; };
 		D7DBC66E23BF881B006FB0E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DBC66D23BF881B006FB0E7 /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1DAADD85CF671FA3C89109FE /* Pods-SimplePlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplePlayer.debug.xcconfig"; path = "Target Support Files/Pods-SimplePlayer/Pods-SimplePlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		6F901AEC50216A360591CADB /* Pods_SimplePlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimplePlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		76E4D74D26F4E7B893044D5D /* Pods-SimplePlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplePlayer.release.xcconfig"; path = "Target Support Files/Pods-SimplePlayer/Pods-SimplePlayer.release.xcconfig"; sourceTree = "<group>"; };
 		D7DBC66623BF881B006FB0E7 /* SimplePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DBC66923BF881B006FB0E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7DBC66B23BF881B006FB0E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A96F2A6DE444A0587FDB559D /* Pods_SimplePlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D24598ED6D104E2175A4873 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F901AEC50216A360591CADB /* Pods_SimplePlayer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D7DBC65D23BF881B006FB0E7 = {
 			isa = PBXGroup;
 			children = (
 				D7DBC66823BF881B006FB0E7 /* SimplePlayer */,
 				D7DBC66723BF881B006FB0E7 /* Products */,
+				FF61872113850AAC04CB796A /* Pods */,
+				4D24598ED6D104E2175A4873 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,16 @@
 			path = SimplePlayer;
 			sourceTree = "<group>";
 		};
+		FF61872113850AAC04CB796A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1DAADD85CF671FA3C89109FE /* Pods-SimplePlayer.debug.xcconfig */,
+				76E4D74D26F4E7B893044D5D /* Pods-SimplePlayer.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7DBC67A23BF881D006FB0E7 /* Build configuration list for PBXNativeTarget "SimplePlayer" */;
 			buildPhases = (
+				C1FBA83D3C0865E49921D9CD /* [CP] Check Pods Manifest.lock */,
 				D7DBC66223BF881B006FB0E7 /* Sources */,
 				D7DBC66323BF881B006FB0E7 /* Frameworks */,
 				D7DBC66423BF881B006FB0E7 /* Resources */,
+				360DC9D18FA137E8E8167278 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		360DC9D18FA137E8E8167278 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SimplePlayer/Pods-SimplePlayer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SimplePlayer/Pods-SimplePlayer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimplePlayer/Pods-SimplePlayer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1FBA83D3C0865E49921D9CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SimplePlayer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D7DBC66223BF881B006FB0E7 /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		D7DBC67B23BF881D006FB0E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DAADD85CF671FA3C89109FE /* Pods-SimplePlayer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +370,7 @@
 		};
 		D7DBC67C23BF881D006FB0E7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76E4D74D26F4E7B893044D5D /* Pods-SimplePlayer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
