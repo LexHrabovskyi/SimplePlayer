@@ -9,13 +9,14 @@
 import UIKit
 import SnapKit
 
-class MainView: UIView {
+class MainViewSongCell: UITableViewCell {
     
+    // TODO: customize for playing song cell
     let myLabel = UILabel()
     let myButton = UIButton()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init() {
+        super.init(style: .default, reuseIdentifier: "MainSongViewCell")
         setUpSubviews()
         setUpConstraints()
     }

@@ -8,20 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		A96F2A6DE444A0587FDB559D /* Pods_SimplePlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F901AEC50216A360591CADB /* Pods_SimplePlayer.framework */; };
-		D79A657A23BF8BEC000F3B09 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A657923BF8BEC000F3B09 /* MainView.swift */; };
+		D79A657A23BF8BEC000F3B09 /* MainViewSongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A657923BF8BEC000F3B09 /* MainViewSongCell.swift */; };
 		D79A657C23BF8D4F000F3B09 /* AddSubviewsExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A657B23BF8D4F000F3B09 /* AddSubviewsExtention.swift */; };
 		D79A657F23BF8FAE000F3B09 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A657E23BF8FAE000F3B09 /* MainViewModel.swift */; };
 		D7DBC66A23BF881B006FB0E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DBC66923BF881B006FB0E7 /* AppDelegate.swift */; };
 		D7DBC66E23BF881B006FB0E7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DBC66D23BF881B006FB0E7 /* MainViewController.swift */; };
 		D7DBC67323BF881D006FB0E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7DBC67223BF881D006FB0E7 /* Assets.xcassets */; };
 		D7DBC67623BF881D006FB0E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7DBC67423BF881D006FB0E7 /* LaunchScreen.storyboard */; };
+		D7E55F5223C2EEA500779D62 /* SongList.json in Resources */ = {isa = PBXBuildFile; fileRef = D7E55F5123C2EEA500779D62 /* SongList.json */; };
+		D7E55F5523C2EF3000779D62 /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E55F5423C2EF3000779D62 /* SongModel.swift */; };
+		D7E55F5723C30BA300779D62 /* MainVCTableViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E55F5623C30BA300779D62 /* MainVCTableViewExtentions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1DAADD85CF671FA3C89109FE /* Pods-SimplePlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplePlayer.debug.xcconfig"; path = "Target Support Files/Pods-SimplePlayer/Pods-SimplePlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		6F901AEC50216A360591CADB /* Pods_SimplePlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimplePlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E4D74D26F4E7B893044D5D /* Pods-SimplePlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplePlayer.release.xcconfig"; path = "Target Support Files/Pods-SimplePlayer/Pods-SimplePlayer.release.xcconfig"; sourceTree = "<group>"; };
-		D79A657923BF8BEC000F3B09 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D79A657923BF8BEC000F3B09 /* MainViewSongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewSongCell.swift; sourceTree = "<group>"; };
 		D79A657B23BF8D4F000F3B09 /* AddSubviewsExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubviewsExtention.swift; sourceTree = "<group>"; };
 		D79A657E23BF8FAE000F3B09 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		D7DBC66623BF881B006FB0E7 /* SimplePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +33,9 @@
 		D7DBC67223BF881D006FB0E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7DBC67523BF881D006FB0E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7DBC67723BF881D006FB0E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7E55F5123C2EEA500779D62 /* SongList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SongList.json; sourceTree = "<group>"; };
+		D7E55F5423C2EF3000779D62 /* SongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongModel.swift; sourceTree = "<group>"; };
+		D7E55F5623C30BA300779D62 /* MainVCTableViewExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCTableViewExtentions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,14 +58,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D79A657623BF8B96000F3B09 /* Main view controller */ = {
+		D79A657623BF8B96000F3B09 /* Main view */ = {
 			isa = PBXGroup;
 			children = (
-				D7DBC66D23BF881B006FB0E7 /* MainViewController.swift */,
+				D7E55F5823C30BAE00779D62 /* Controller */,
 				D79A657E23BF8FAE000F3B09 /* MainViewModel.swift */,
-				D79A657923BF8BEC000F3B09 /* MainView.swift */,
+				D79A657923BF8BEC000F3B09 /* MainViewSongCell.swift */,
 			);
-			path = "Main view controller";
+			path = "Main view";
 			sourceTree = "<group>";
 		};
 		D79A657D23BF8DAD000F3B09 /* Extentions */ = {
@@ -92,13 +98,40 @@
 			isa = PBXGroup;
 			children = (
 				D7DBC66923BF881B006FB0E7 /* AppDelegate.swift */,
-				D79A657623BF8B96000F3B09 /* Main view controller */,
+				D79A657623BF8B96000F3B09 /* Main view */,
 				D79A657D23BF8DAD000F3B09 /* Extentions */,
+				D7E55F5323C2EF1800779D62 /* Models */,
+				D7E55F5023C2EE7100779D62 /* Resources */,
 				D7DBC67223BF881D006FB0E7 /* Assets.xcassets */,
 				D7DBC67423BF881D006FB0E7 /* LaunchScreen.storyboard */,
 				D7DBC67723BF881D006FB0E7 /* Info.plist */,
 			);
 			path = SimplePlayer;
+			sourceTree = "<group>";
+		};
+		D7E55F5023C2EE7100779D62 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D7E55F5123C2EEA500779D62 /* SongList.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D7E55F5323C2EF1800779D62 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D7E55F5423C2EF3000779D62 /* SongModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D7E55F5823C30BAE00779D62 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D7DBC66D23BF881B006FB0E7 /* MainViewController.swift */,
+				D7E55F5623C30BA300779D62 /* MainVCTableViewExtentions.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		FF61872113850AAC04CB796A /* Pods */ = {
@@ -170,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7E55F5223C2EEA500779D62 /* SongList.json in Resources */,
 				D7DBC67623BF881D006FB0E7 /* LaunchScreen.storyboard in Resources */,
 				D7DBC67323BF881D006FB0E7 /* Assets.xcassets in Resources */,
 			);
@@ -224,10 +258,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7E55F5523C2EF3000779D62 /* SongModel.swift in Sources */,
 				D79A657F23BF8FAE000F3B09 /* MainViewModel.swift in Sources */,
 				D79A657C23BF8D4F000F3B09 /* AddSubviewsExtention.swift in Sources */,
+				D7E55F5723C30BA300779D62 /* MainVCTableViewExtentions.swift in Sources */,
 				D7DBC66E23BF881B006FB0E7 /* MainViewController.swift in Sources */,
-				D79A657A23BF8BEC000F3B09 /* MainView.swift in Sources */,
+				D79A657A23BF8BEC000F3B09 /* MainViewSongCell.swift in Sources */,
 				D7DBC66A23BF881B006FB0E7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,7 +404,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CH744BWJLN;
 				INFOPLIST_FILE = SimplePlayer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -388,7 +424,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CH744BWJLN;
 				INFOPLIST_FILE = SimplePlayer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
