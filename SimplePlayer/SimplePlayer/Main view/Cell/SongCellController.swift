@@ -16,6 +16,8 @@ class SongCellController: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        // TODO: add bindings?
     }
     
     func setSong(_ song: Song) {
@@ -29,7 +31,9 @@ class SongCellController: UITableViewCell {
     }
     
     @objc private func playPauseMusic(_ sender: UIButton) {
-        print("played \(song)")
+        
+        content?.setPlayPauseIcon(isPlaying: true)
+        content?.startSpinner() // TODO: only if loading
     }
     
     override func awakeFromNib() {
@@ -39,7 +43,7 @@ class SongCellController: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         content?.removeFromSuperview()
-        // delete bindings
+        // TODO: delete bindings
     }
     
     required init?(coder: NSCoder) {

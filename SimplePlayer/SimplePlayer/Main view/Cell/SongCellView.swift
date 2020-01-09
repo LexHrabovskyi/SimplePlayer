@@ -15,6 +15,7 @@ class SongCellView: UIView {
     private let songName = UILabel()
     private let spinner = UIActivityIndicatorView()
     
+    // MARK: controls
     func putContent(on parentView: UIView) {
         parentView.addSubview(self)
         self.snp.makeConstraints { (make) in
@@ -26,6 +27,13 @@ class SongCellView: UIView {
         songName.text = name
     }
     
+    func setPlayPauseIcon(isPlaying: Bool) {
+        
+        let image = UIImage(systemName: isPlaying ? "pause" : "play")
+        playPauseButton.setImage(image, for: .normal)
+        
+    }
+    
     func startSpinner() {
         spinner.startAnimating()
     }
@@ -34,6 +42,7 @@ class SongCellView: UIView {
         spinner.stopAnimating()
     }
     
+    // MARK: initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpSubviews()
@@ -44,11 +53,10 @@ class SongCellView: UIView {
         
         addSubviews([playPauseButton, songName, spinner])
         
-        let image = UIImage(systemName: "play")
-        playPauseButton.setImage(image, for: .normal)
+        setPlayPauseIcon(isPlaying: false)
         
         spinner.hidesWhenStopped = true
-        spinner.style = .large
+        spinner.style = .medium
         
     }
     

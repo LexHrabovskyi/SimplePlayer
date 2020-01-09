@@ -32,6 +32,7 @@ class MainView: UIView {
         
         addSubviews([tableView, activityIndicator])
         activityIndicator.hidesWhenStopped = true
+        activityIndicator.style = .large
         
     }
     
