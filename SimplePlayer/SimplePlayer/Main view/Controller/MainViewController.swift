@@ -12,7 +12,7 @@ import Combine
 class MainViewController: UIViewController {
 
     private(set) var viewModel: MainViewModel
-    private var contentView: MainView { return view as! MainView }
+    var contentView: MainView { return view as! MainView }
     private var songBatchSubscriber: AnyCancellable?
     
     init(viewModel: MainViewModel = MainViewModel()) {
@@ -31,7 +31,7 @@ class MainViewController: UIViewController {
         contentView.tableView.delegate = self
         contentView.tableView.dataSource = self
         
-        contentView.tableView.register(MainViewSongCell.self, forCellReuseIdentifier: "MainSongViewCell")
+        contentView.tableView.register(SongCellController.self, forCellReuseIdentifier: CellReuseIdentifiers.mainViewCell)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(updateList))
         

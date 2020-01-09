@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		A96F2A6DE444A0587FDB559D /* Pods_SimplePlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F901AEC50216A360591CADB /* Pods_SimplePlayer.framework */; };
 		D757F7F423C6E10E001BC2B0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D757F7F323C6E10E001BC2B0 /* MainView.swift */; };
-		D79A657A23BF8BEC000F3B09 /* MainViewSongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A657923BF8BEC000F3B09 /* MainViewSongCell.swift */; };
+		D757F7F723C7072B001BC2B0 /* SongCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D757F7F623C7072B001BC2B0 /* SongCellController.swift */; };
+		D757F7FB23C7335B001BC2B0 /* CellReuseIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D757F7FA23C7335B001BC2B0 /* CellReuseIdentifiers.swift */; };
+		D79A657A23BF8BEC000F3B09 /* SongCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A657923BF8BEC000F3B09 /* SongCellView.swift */; };
 		D79A657C23BF8D4F000F3B09 /* AddSubviewsExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A657B23BF8D4F000F3B09 /* AddSubviewsExtention.swift */; };
 		D79A657F23BF8FAE000F3B09 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A657E23BF8FAE000F3B09 /* MainViewModel.swift */; };
 		D7DBC66A23BF881B006FB0E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DBC66923BF881B006FB0E7 /* AppDelegate.swift */; };
@@ -26,7 +28,9 @@
 		6F901AEC50216A360591CADB /* Pods_SimplePlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimplePlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E4D74D26F4E7B893044D5D /* Pods-SimplePlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplePlayer.release.xcconfig"; path = "Target Support Files/Pods-SimplePlayer/Pods-SimplePlayer.release.xcconfig"; sourceTree = "<group>"; };
 		D757F7F323C6E10E001BC2B0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		D79A657923BF8BEC000F3B09 /* MainViewSongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewSongCell.swift; sourceTree = "<group>"; };
+		D757F7F623C7072B001BC2B0 /* SongCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCellController.swift; sourceTree = "<group>"; };
+		D757F7FA23C7335B001BC2B0 /* CellReuseIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellReuseIdentifiers.swift; sourceTree = "<group>"; };
+		D79A657923BF8BEC000F3B09 /* SongCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCellView.swift; sourceTree = "<group>"; };
 		D79A657B23BF8D4F000F3B09 /* AddSubviewsExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubviewsExtention.swift; sourceTree = "<group>"; };
 		D79A657E23BF8FAE000F3B09 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		D7DBC66623BF881B006FB0E7 /* SimplePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,13 +64,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D757F7F523C6E6C7001BC2B0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D757F7F623C7072B001BC2B0 /* SongCellController.swift */,
+				D79A657923BF8BEC000F3B09 /* SongCellView.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		D79A657623BF8B96000F3B09 /* Main view */ = {
 			isa = PBXGroup;
 			children = (
 				D7E55F5823C30BAE00779D62 /* Controller */,
 				D79A657E23BF8FAE000F3B09 /* MainViewModel.swift */,
 				D757F7F323C6E10E001BC2B0 /* MainView.swift */,
-				D79A657923BF8BEC000F3B09 /* MainViewSongCell.swift */,
+				D757F7F523C6E6C7001BC2B0 /* Cell */,
 			);
 			path = "Main view";
 			sourceTree = "<group>";
@@ -75,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				D79A657B23BF8D4F000F3B09 /* AddSubviewsExtention.swift */,
+				D757F7FA23C7335B001BC2B0 /* CellReuseIdentifiers.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -265,9 +279,11 @@
 				D757F7F423C6E10E001BC2B0 /* MainView.swift in Sources */,
 				D79A657F23BF8FAE000F3B09 /* MainViewModel.swift in Sources */,
 				D79A657C23BF8D4F000F3B09 /* AddSubviewsExtention.swift in Sources */,
+				D757F7FB23C7335B001BC2B0 /* CellReuseIdentifiers.swift in Sources */,
+				D757F7F723C7072B001BC2B0 /* SongCellController.swift in Sources */,
 				D7E55F5723C30BA300779D62 /* MainVCTableViewExtentions.swift in Sources */,
 				D7DBC66E23BF881B006FB0E7 /* MainViewController.swift in Sources */,
-				D79A657A23BF8BEC000F3B09 /* MainViewSongCell.swift in Sources */,
+				D79A657A23BF8BEC000F3B09 /* SongCellView.swift in Sources */,
 				D7DBC66A23BF881B006FB0E7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

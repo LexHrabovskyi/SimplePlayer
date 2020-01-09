@@ -29,11 +29,12 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let songData = viewModel.songList[indexPath.row]
-        let cell = UITableViewCell()
-        cell.textLabel?.text = songData.name
-        cell.detailTextLabel?.text = songData.url
+        let cell = contentView.tableView.dequeueReusableCell(withIdentifier: CellReuseIdentifiers.mainViewCell, for: indexPath) as! SongCellController
+        
+        let song = viewModel.songList[indexPath.row]
+        cell.setSong(song)
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
