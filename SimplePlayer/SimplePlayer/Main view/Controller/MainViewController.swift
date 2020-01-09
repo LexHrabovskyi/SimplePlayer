@@ -33,9 +33,17 @@ class MainViewController: UIViewController {
         
         contentView.tableView.register(SongCellController.self, forCellReuseIdentifier: CellReuseIdentifiers.mainViewCell)
         
+        navigationItem.title = "From soundhelix.com"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(updateList))
         
-        // subscriber
+        setUpBindings()
+        
+        updateList() // getting first 10 songs
+        
+    }
+    
+    private func setUpBindings() {
+        
         songBatchSubscriber = viewModel.newSongBatch.sink { [weak self] songBatch in
             guard self != nil else { return }
             self?.contentView.stopSpinner()
