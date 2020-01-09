@@ -7,33 +7,60 @@
 //
 
 import UIKit
-import SnapKit
+import Combine
 
 class SongCellController: UITableViewCell {
     
     private var song: Song?
+    private var playerController: PlayerController?
     private var content: SongCellView?
+    
+    private var loadingStatusSubscriber: AnyCancellable?
+    private var playingSongSubscriber: AnyCancellable?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        // TODO: add bindings?
     }
     
-    func setSong(_ song: Song) {
+    func setSong(_ song: Song, inController controller: PlayerController) {
         self.song = song
+        self.playerController = controller
         self.content = SongCellView()
         content?.setSongName(song.name)
         content?.putContent(on: contentView)
         
         content?.playPauseButton.addTarget(self, action: #selector(playPauseMusic), for: .touchUpInside)
+        
+        addBindings()
 
     }
     
-    @objc private func playPauseMusic(_ sender: UIButton) {
+    private func addBindings() {
         
-        content?.setPlayPauseIcon(isPlaying: true)
-        content?.startSpinner() // TODO: only if loading
+        loadingStatusSubscriber = playerController?.loadingStatusChanged.sink { [weak self, song] notLoaded in
+            
+            guard let currentSong = self?.playerController?.getCurrentSong(), song == currentSong else { return }
+            
+            if notLoaded {
+                self?.content?.startSpinner()
+            } else {
+                self?.content?.stopSpinner()
+            }
+        }
+        
+        playingSongSubscriber = playerController?.playingSongPublisher.sink { [weak self, song] value in
+            guard self != nil else { return }
+            if value.1 && value.0 == song {
+                self?.content?.setPlayPauseIcon(isPlaying: true)
+            } else {
+                self?.content?.setPlayPauseIcon(isPlaying: false)
+            }
+        }
+        
+    }
+    
+    @objc private func playPauseMusic(_ sender: UIButton) {
+        playerController?.playOrPause(song: song!)
     }
     
     override func awakeFromNib() {
@@ -41,9 +68,13 @@ class SongCellController: UITableViewCell {
     }
     
     override func prepareForReuse() {
+        
         super.prepareForReuse()
+        
         content?.removeFromSuperview()
-        // TODO: delete bindings
+        playerController = nil
+        loadingStatusSubscriber = nil
+        
     }
     
     required init?(coder: NSCoder) {

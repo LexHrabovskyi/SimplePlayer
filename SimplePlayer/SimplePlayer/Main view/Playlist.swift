@@ -14,7 +14,7 @@ final class Playlist {
     var newSongBatch = PassthroughSubject<[Song], Never>()
     
     var songList: [Song] = [Song]()
-    var currentSong: Song? = nil
+    @Published var currentSong: Song? = nil
     private var beginningPage: Int = 0
     
     func setCurrentSong(_ song: Song) {
@@ -44,6 +44,7 @@ final class Playlist {
         
     }
     
+    // TODO: maybe delete
     func setNextSong(_ backward: Bool = false) {
         
         guard let _ = currentSong else {

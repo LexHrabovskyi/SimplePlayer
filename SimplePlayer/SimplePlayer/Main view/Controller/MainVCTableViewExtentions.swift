@@ -32,7 +32,7 @@ extension MainViewController: UITableViewDataSource {
         let cell = contentView.tableView.dequeueReusableCell(withIdentifier: CellReuseIdentifiers.mainViewCell, for: indexPath) as! SongCellController
         
         let song = playlist.songList[indexPath.row]
-        cell.setSong(song)
+        cell.setSong(song, inController: playerController)
         return cell
         
     }

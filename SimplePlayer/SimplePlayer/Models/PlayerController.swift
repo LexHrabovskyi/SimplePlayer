@@ -18,6 +18,11 @@ class PlayerController: ObservableObject {
         return $isLoading
             .eraseToAnyPublisher()
     }
+    var playingSongPublisher: AnyPublisher<(Song?, Bool), Never> {
+        return player.$isPlaying.map { value in
+            (self.getCurrentSong(), value)
+        }.eraseToAnyPublisher()
+    }
     
     let playlist: Playlist
     fileprivate let player: AudioPlayer
@@ -75,8 +80,8 @@ class PlayerController: ObservableObject {
         rewindTime(to: backwardTime)
     }
     
-    func getCurrentSong() -> Song {
-        return playlist.currentSong!
+    func getCurrentSong() -> Song? {
+        return playlist.currentSong
     }
     
     func getPlayingDuration() -> Double? {
