@@ -11,9 +11,28 @@ import SnapKit
 
 class SongCellView: UIView {
     
-    private let playPauseImage = UIImageView()
+    let playPauseButton = UIButton()
     private let songName = UILabel()
     private let spinner = UIActivityIndicatorView()
+    
+    func putContent(on parentView: UIView) {
+        parentView.addSubview(self)
+        self.snp.makeConstraints { (make) in
+            make.top.left.right.bottom.equalToSuperview()
+        }
+    }
+    
+    func setSongName(_ name: String) {
+        songName.text = name
+    }
+    
+    func startSpinner() {
+        spinner.startAnimating()
+    }
+    
+    func stopSpinner() {
+        spinner.stopAnimating()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,23 +40,21 @@ class SongCellView: UIView {
         setUpConstraints()
     }
     
-    func setSongName(_ name: String) {
-        songName.text = name
-    }
-    
     private func setUpSubviews() {
         
-        addSubviews([playPauseImage, songName, spinner])
+        addSubviews([playPauseButton, songName, spinner])
         
-        playPauseImage.image = UIImage(systemName: "play") // TODO: reactive bindings
+        let image = UIImage(systemName: "play")
+        playPauseButton.setImage(image, for: .normal)
         
         spinner.hidesWhenStopped = true
+        spinner.style = .large
         
     }
     
     private func setUpConstraints() {
         
-        playPauseImage.snp.makeConstraints { (make) in
+        playPauseButton.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().inset(16)
             make.height.width.equalTo(20)
@@ -45,7 +62,7 @@ class SongCellView: UIView {
         
         songName.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.left.equalTo(playPauseImage.snp.right).offset(16)
+            make.left.equalTo(playPauseButton.snp.right).offset(16)
             make.right.equalTo(spinner.snp.left).offset(16)
         }
         

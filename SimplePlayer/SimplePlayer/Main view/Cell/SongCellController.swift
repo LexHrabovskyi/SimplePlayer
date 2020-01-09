@@ -22,12 +22,14 @@ class SongCellController: UITableViewCell {
         self.song = song
         self.content = SongCellView()
         content?.setSongName(song.name)
+        content?.putContent(on: contentView)
+        
+        content?.playPauseButton.addTarget(self, action: #selector(playPauseMusic), for: .touchUpInside)
 
-        // TODO: bring it to view?
-        addSubview(content!)
-        content!.snp.makeConstraints { (make) in
-            make.top.left.right.bottom.equalToSuperview()
-        }
+    }
+    
+    @objc private func playPauseMusic(_ sender: UIButton) {
+        print("played \(song)")
     }
     
     override func awakeFromNib() {
