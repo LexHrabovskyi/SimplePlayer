@@ -12,8 +12,8 @@ import Combine
 class MainViewController: UIViewController {
 
     private(set) var viewModel: MainViewModel
+    private var contentView: MainView { return view as! MainView }
     private var songBatchSubscriber: AnyCancellable?
-    var tableView = UITableView()
     
     init(viewModel: MainViewModel = MainViewModel()) {
         self.viewModel = viewModel
@@ -22,29 +22,31 @@ class MainViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        view = tableView
+        view = MainView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        contentView.tableView.delegate = self
+        contentView.tableView.dataSource = self
         
-        tableView.register(MainViewSongCell.self, forCellReuseIdentifier: "MainSongViewCell")
+        contentView.tableView.register(MainViewSongCell.self, forCellReuseIdentifier: "MainSongViewCell")
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(updateList))
         
         // subscriber
         songBatchSubscriber = viewModel.newSongBatch.sink { [weak self] songBatch in
             guard self != nil else { return }
+            self?.contentView.stopSpinner()
             let newIndexPaths = self!.getAddedIndexPaths(songBatch.count)
-            self?.tableView.insertRows(at: newIndexPaths, with: .fade)
+            self?.contentView.tableView.insertRows(at: newIndexPaths, with: .fade)
         }
         
     }
     
     @objc private func updateList() {
+        contentView.startSpinner()
         viewModel.updateList()
     }
 

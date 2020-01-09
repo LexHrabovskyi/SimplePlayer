@@ -43,7 +43,8 @@ class MainView: UIView {
         }
         
         activityIndicator.snp.makeConstraints { (make) in
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().inset(20)
+            make.centerX.equalToSuperview()
         }
         
     }
