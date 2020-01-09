@@ -9,13 +9,17 @@
 import Foundation
 import Combine
 
-final class MainViewModel {
+final class Playlist {
     
     var newSongBatch = PassthroughSubject<[Song], Never>()
-    var subscribtions = [AnyCancellable]()
     
-    @Published var songList: [Song] = [Song]()
+    var songList: [Song] = [Song]()
+    var currentSong: Song? = nil
     private var beginningPage: Int = 0
+    
+    func setCurrentSong(_ song: Song) {
+         currentSong = song
+    }
     
     func updateList() {
         
@@ -37,6 +41,28 @@ final class MainViewModel {
             self.newSongBatch.send(newSongs)
             
         }
+        
+    }
+    
+    func setNextSong(_ backward: Bool = false) {
+        
+        guard let _ = currentSong else {
+            currentSong = songList.first!
+            return
+        }
+        
+        let currentIndex = songList.firstIndex(of: currentSong!)!
+        var nextIndex = 0
+        
+        if backward {
+            let zeroIndex = currentIndex == 0
+            nextIndex = zeroIndex ? songList.count - 1 : currentIndex - 1
+        } else {
+            let lastIndex = (currentIndex == songList.count - 1)
+            nextIndex = lastIndex ? 0 : currentIndex + 1
+        }
+        
+        currentSong = songList[nextIndex]
         
     }
     

@@ -24,14 +24,14 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.songList.count
+        return playlist.songList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = contentView.tableView.dequeueReusableCell(withIdentifier: CellReuseIdentifiers.mainViewCell, for: indexPath) as! SongCellController
         
-        let song = viewModel.songList[indexPath.row]
+        let song = playlist.songList[indexPath.row]
         cell.setSong(song)
         return cell
         

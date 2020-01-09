@@ -11,12 +11,12 @@ import Combine
 
 class MainViewController: UIViewController {
 
-    private(set) var viewModel: MainViewModel
+    private(set) var playlist: Playlist
     var contentView: MainView { return view as! MainView }
     private var songBatchSubscriber: AnyCancellable?
     
-    init(viewModel: MainViewModel = MainViewModel()) {
-        self.viewModel = viewModel
+    init(viewModel: Playlist = Playlist()) {
+        self.playlist = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -44,7 +44,7 @@ class MainViewController: UIViewController {
     
     private func setUpBindings() {
         
-        songBatchSubscriber = viewModel.newSongBatch.sink { [weak self] songBatch in
+        songBatchSubscriber = playlist.newSongBatch.sink { [weak self] songBatch in
             guard self != nil else { return }
             self?.contentView.stopSpinner()
             let newIndexPaths = self!.getAddedIndexPaths(songBatch.count)
@@ -55,13 +55,13 @@ class MainViewController: UIViewController {
     
     @objc private func updateList() {
         contentView.startSpinner()
-        viewModel.updateList()
+        playlist.updateList()
     }
 
     private func getAddedIndexPaths(_ count: Int) -> [IndexPath] {
         
         var newIndexPaths = [IndexPath]()
-        let lastRow = self.viewModel.songList.count
+        let lastRow = self.playlist.songList.count
         for row in (lastRow - count)..<lastRow {
             newIndexPaths.append(IndexPath(row: row, section: 0))
         }
