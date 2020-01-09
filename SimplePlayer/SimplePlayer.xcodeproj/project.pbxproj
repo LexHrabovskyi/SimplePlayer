@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A96F2A6DE444A0587FDB559D /* Pods_SimplePlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F901AEC50216A360591CADB /* Pods_SimplePlayer.framework */; };
+		D757F7F423C6E10E001BC2B0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D757F7F323C6E10E001BC2B0 /* MainView.swift */; };
 		D79A657A23BF8BEC000F3B09 /* MainViewSongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A657923BF8BEC000F3B09 /* MainViewSongCell.swift */; };
 		D79A657C23BF8D4F000F3B09 /* AddSubviewsExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A657B23BF8D4F000F3B09 /* AddSubviewsExtention.swift */; };
 		D79A657F23BF8FAE000F3B09 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A657E23BF8FAE000F3B09 /* MainViewModel.swift */; };
@@ -24,6 +25,7 @@
 		1DAADD85CF671FA3C89109FE /* Pods-SimplePlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplePlayer.debug.xcconfig"; path = "Target Support Files/Pods-SimplePlayer/Pods-SimplePlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		6F901AEC50216A360591CADB /* Pods_SimplePlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimplePlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E4D74D26F4E7B893044D5D /* Pods-SimplePlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplePlayer.release.xcconfig"; path = "Target Support Files/Pods-SimplePlayer/Pods-SimplePlayer.release.xcconfig"; sourceTree = "<group>"; };
+		D757F7F323C6E10E001BC2B0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D79A657923BF8BEC000F3B09 /* MainViewSongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewSongCell.swift; sourceTree = "<group>"; };
 		D79A657B23BF8D4F000F3B09 /* AddSubviewsExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubviewsExtention.swift; sourceTree = "<group>"; };
 		D79A657E23BF8FAE000F3B09 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			children = (
 				D7E55F5823C30BAE00779D62 /* Controller */,
 				D79A657E23BF8FAE000F3B09 /* MainViewModel.swift */,
+				D757F7F323C6E10E001BC2B0 /* MainView.swift */,
 				D79A657923BF8BEC000F3B09 /* MainViewSongCell.swift */,
 			);
 			path = "Main view";
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7E55F5523C2EF3000779D62 /* SongModel.swift in Sources */,
+				D757F7F423C6E10E001BC2B0 /* MainView.swift in Sources */,
 				D79A657F23BF8FAE000F3B09 /* MainViewModel.swift in Sources */,
 				D79A657C23BF8D4F000F3B09 /* AddSubviewsExtention.swift in Sources */,
 				D7E55F5723C30BA300779D62 /* MainVCTableViewExtentions.swift in Sources */,

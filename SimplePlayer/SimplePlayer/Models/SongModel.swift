@@ -13,6 +13,5 @@ struct Song: Hashable, Codable, Identifiable, Equatable {
     let id: Int
     let name: String
     let url: String
-    let lenght: Double
     
 }
