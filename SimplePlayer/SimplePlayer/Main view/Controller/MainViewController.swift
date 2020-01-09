@@ -11,12 +11,13 @@ import Combine
 
 class MainViewController: UIViewController {
 
-    private(set) var playlist: Playlist
+    let playerController: PlayerController
+    var playlist: Playlist { return playerController.playlist }
     var contentView: MainView { return view as! MainView }
     private var songBatchSubscriber: AnyCancellable?
     
-    init(viewModel: Playlist = Playlist()) {
-        self.playlist = viewModel
+    init(viewModel: PlayerController) {
+        self.playerController = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
