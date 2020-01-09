@@ -18,7 +18,6 @@
 		D7DBC66E23BF881B006FB0E7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DBC66D23BF881B006FB0E7 /* MainViewController.swift */; };
 		D7DBC67323BF881D006FB0E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7DBC67223BF881D006FB0E7 /* Assets.xcassets */; };
 		D7DBC67623BF881D006FB0E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7DBC67423BF881D006FB0E7 /* LaunchScreen.storyboard */; };
-		D7E55F5223C2EEA500779D62 /* SongList.json in Resources */ = {isa = PBXBuildFile; fileRef = D7E55F5123C2EEA500779D62 /* SongList.json */; };
 		D7E55F5523C2EF3000779D62 /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E55F5423C2EF3000779D62 /* SongModel.swift */; };
 		D7E55F5723C30BA300779D62 /* MainVCTableViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E55F5623C30BA300779D62 /* MainVCTableViewExtentions.swift */; };
 /* End PBXBuildFile section */
@@ -39,7 +38,6 @@
 		D7DBC67223BF881D006FB0E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7DBC67523BF881D006FB0E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7DBC67723BF881D006FB0E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D7E55F5123C2EEA500779D62 /* SongList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SongList.json; sourceTree = "<group>"; };
 		D7E55F5423C2EF3000779D62 /* SongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongModel.swift; sourceTree = "<group>"; };
 		D7E55F5623C30BA300779D62 /* MainVCTableViewExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCTableViewExtentions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,8 +117,6 @@
 				D79A657D23BF8DAD000F3B09 /* Extentions */,
 				D7E55F5323C2EF1800779D62 /* Models */,
 				D7E55F5023C2EE7100779D62 /* Resources */,
-				D7DBC67223BF881D006FB0E7 /* Assets.xcassets */,
-				D7DBC67423BF881D006FB0E7 /* LaunchScreen.storyboard */,
 				D7DBC67723BF881D006FB0E7 /* Info.plist */,
 			);
 			path = SimplePlayer;
@@ -129,7 +125,8 @@
 		D7E55F5023C2EE7100779D62 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D7E55F5123C2EEA500779D62 /* SongList.json */,
+				D7DBC67423BF881D006FB0E7 /* LaunchScreen.storyboard */,
+				D7DBC67223BF881D006FB0E7 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -220,7 +217,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7E55F5223C2EEA500779D62 /* SongList.json in Resources */,
 				D7DBC67623BF881D006FB0E7 /* LaunchScreen.storyboard in Resources */,
 				D7DBC67323BF881D006FB0E7 /* Assets.xcassets in Resources */,
 			);

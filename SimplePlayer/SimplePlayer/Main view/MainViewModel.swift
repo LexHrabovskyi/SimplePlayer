@@ -14,16 +14,17 @@ final class MainViewModel {
     var newSongBatch = PassthroughSubject<[Song], Never>()
     var subscribtions = [AnyCancellable]()
     
-    @Published var songList: [Song] = load("SongList.json")
-    private var beginningPage: Int = 1
+    @Published var songList: [Song] = [Song]()
+    private var beginningPage: Int = 0
     
     func updateList() {
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // simulating API delay
             
             var newSongs = [Song]()
-            let startNumber = self.beginningPage * 10
+            let startNumber = self.beginningPage * 10 + 1
             for songNumber in startNumber...startNumber + 9 {
+                
                 let newSong = Song(id: 1000 + songNumber
                     , name: "SoundHelix Song \(songNumber)"
                     , url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-\(songNumber).mp3")
@@ -37,29 +38,6 @@ final class MainViewModel {
             
         }
         
-    }
-    
-}
-
-func load<T: Decodable>(_ filename: String, as type: T.Type = T.self) -> T {
-    
-    let data: Data
-    
-    guard let file = Bundle.main.url(forResource: filename, withExtension: nil) else {
-        fatalError("Couldn't find \(filename) in main bundle.")
-    }
-    
-    do {
-        data = try Data(contentsOf: file)
-    } catch {
-        fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
-    }
-    
-    do {
-        let decoder = JSONDecoder()
-        return try decoder.decode(T.self, from: data)
-    } catch {
-        fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
     
 }
