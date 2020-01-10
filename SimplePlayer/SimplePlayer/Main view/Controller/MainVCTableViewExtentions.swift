@@ -12,7 +12,13 @@ import UIKit
 extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        let song = playlist.songList[indexPath.row]
+        segueToPlayerView(song: song)
+    }
+    
+    private func segueToPlayerView(song: Song) {
+        let playerVC = PlayerViewController(song: song, for: playerController)
+        navigationController?.pushViewController(playerVC, animated: true)
     }
     
 }

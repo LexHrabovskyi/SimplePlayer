@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A96F2A6DE444A0587FDB559D /* Pods_SimplePlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F901AEC50216A360591CADB /* Pods_SimplePlayer.framework */; };
+		D7111E0B23C8280D00DC81C2 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7111E0A23C8280D00DC81C2 /* PlayerViewController.swift */; };
+		D7111E0D23C8281900DC81C2 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7111E0C23C8281900DC81C2 /* PlayerView.swift */; };
 		D757F7F423C6E10E001BC2B0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D757F7F323C6E10E001BC2B0 /* MainView.swift */; };
 		D757F7F723C7072B001BC2B0 /* SongCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D757F7F623C7072B001BC2B0 /* SongCellController.swift */; };
 		D757F7FB23C7335B001BC2B0 /* CellReuseIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D757F7FA23C7335B001BC2B0 /* CellReuseIdentifiers.swift */; };
@@ -29,6 +31,8 @@
 		1DAADD85CF671FA3C89109FE /* Pods-SimplePlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplePlayer.debug.xcconfig"; path = "Target Support Files/Pods-SimplePlayer/Pods-SimplePlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		6F901AEC50216A360591CADB /* Pods_SimplePlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimplePlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E4D74D26F4E7B893044D5D /* Pods-SimplePlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplePlayer.release.xcconfig"; path = "Target Support Files/Pods-SimplePlayer/Pods-SimplePlayer.release.xcconfig"; sourceTree = "<group>"; };
+		D7111E0A23C8280D00DC81C2 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		D7111E0C23C8281900DC81C2 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		D757F7F323C6E10E001BC2B0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D757F7F623C7072B001BC2B0 /* SongCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCellController.swift; sourceTree = "<group>"; };
 		D757F7FA23C7335B001BC2B0 /* CellReuseIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellReuseIdentifiers.swift; sourceTree = "<group>"; };
@@ -66,6 +70,15 @@
 				6F901AEC50216A360591CADB /* Pods_SimplePlayer.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7111E0923C827E700DC81C2 /* Player view */ = {
+			isa = PBXGroup;
+			children = (
+				D7111E0A23C8280D00DC81C2 /* PlayerViewController.swift */,
+				D7111E0C23C8281900DC81C2 /* PlayerView.swift */,
+			);
+			path = "Player view";
 			sourceTree = "<group>";
 		};
 		D757F7F523C6E6C7001BC2B0 /* Cell */ = {
@@ -120,6 +133,7 @@
 			children = (
 				D7DBC66923BF881B006FB0E7 /* AppDelegate.swift */,
 				D79A657623BF8B96000F3B09 /* Main view */,
+				D7111E0923C827E700DC81C2 /* Player view */,
 				D79A657D23BF8DAD000F3B09 /* Extentions */,
 				D7E55F5323C2EF1800779D62 /* Models */,
 				D7E55F5023C2EE7100779D62 /* Resources */,
@@ -283,6 +297,8 @@
 				D757F80123C74E3B001BC2B0 /* RemotePlayerControl.swift in Sources */,
 				D7E55F5523C2EF3000779D62 /* SongModel.swift in Sources */,
 				D757F7F423C6E10E001BC2B0 /* MainView.swift in Sources */,
+				D7111E0D23C8281900DC81C2 /* PlayerView.swift in Sources */,
+				D7111E0B23C8280D00DC81C2 /* PlayerViewController.swift in Sources */,
 				D757F7FF23C74E35001BC2B0 /* PlayerController.swift in Sources */,
 				D757F7FD23C74D9D001BC2B0 /* AudioPlayer.swift in Sources */,
 				D79A657F23BF8FAE000F3B09 /* Playlist.swift in Sources */,
