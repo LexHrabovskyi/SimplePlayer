@@ -96,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				D7E55F5823C30BAE00779D62 /* Controller */,
-				D79A657E23BF8FAE000F3B09 /* Playlist.swift */,
 				D757F7F323C6E10E001BC2B0 /* MainView.swift */,
 				D757F7F523C6E6C7001BC2B0 /* Cell */,
 			);
@@ -157,9 +156,10 @@
 		D7E55F5323C2EF1800779D62 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D7E55F5423C2EF3000779D62 /* SongModel.swift */,
-				D757F7FC23C74D9D001BC2B0 /* AudioPlayer.swift */,
 				D757F7FE23C74E35001BC2B0 /* PlayerController.swift */,
+				D79A657E23BF8FAE000F3B09 /* Playlist.swift */,
+				D757F7FC23C74D9D001BC2B0 /* AudioPlayer.swift */,
+				D7E55F5423C2EF3000779D62 /* SongModel.swift */,
 				D757F80023C74E3B001BC2B0 /* RemotePlayerControl.swift */,
 			);
 			path = Models;
