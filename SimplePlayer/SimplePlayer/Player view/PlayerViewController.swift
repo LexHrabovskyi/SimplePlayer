@@ -15,6 +15,10 @@ class PlayerViewController: UIViewController {
     private var song: Song
     private var contentView: PlayerView { return view as! PlayerView }
     
+    private var songLenght: Double?
+    private var loadingStatusSubscriber: AnyCancellable?
+    private var playingSongSubscriber: AnyCancellable?
+    
     init(song: Song, for playerCotroller: PlayerController) {
         self.playerController = playerCotroller
         self.song = song
@@ -29,6 +33,71 @@ class PlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        contentView.setSongName(song.name)
+        
+        contentView.playPauseButton.addTarget(self, action: #selector(playPauseSong), for: .touchUpInside)
+        contentView.goBackButton.addTarget(self, action: #selector(backward15Sec), for: .touchUpInside)
+        contentView.goForwardButton.addTarget(self, action: #selector(forward15Sec), for: .touchUpInside)
+        contentView.slider.addTarget(self, action: #selector(rewindTime(_:)), for: .valueChanged)
+        
+        addBindings()
+        
+    }
+    
+    private func addBindings() {
+        
+        loadingStatusSubscriber = playerController.loadingStatusChanged.sink { [weak self, song] notLoaded in
+            
+            guard self?.playerController.isCurrentSong(song) ?? false else { return }
+            
+            self?.songLenght = self?.playerController.getPlayingDuration()
+            let songLenght = self?.toMinSec(self?.songLenght ?? 0) ?? "0:00"
+            self?.contentView.setSongLenght(songLenght)
+            
+            if notLoaded {
+                self?.contentView.startSpinner()
+            } else {
+                self?.contentView.stopSpinner()
+            }
+        }
+        
+        playingSongSubscriber = playerController.playingSongPublisher.sink { [weak self, song] value in
+            guard self != nil else { return }
+            if value.1 && value.0 == song {
+                self?.contentView.setPlayPauseIcon(isPlaying: true)
+            } else {
+                self?.contentView.setPlayPauseIcon(isPlaying: false)
+            }
+        }
+        
+    }
+    
+    @objc private func playPauseSong() {
+        playerController.playOrPause(song: song)
+        guard songLenght == nil else { return }
+        contentView.startSpinner()
+    }
+    
+    @objc private func backward15Sec() {
+        guard playerController.isCurrentSong(song) else { return }
+        playerController.backward15Sec()
+    }
+    
+    @objc private func forward15Sec() {
+        guard playerController.isCurrentSong(song) else { return }
+        playerController.forward15Sec()
+    }
+    
+    @objc private func rewindTime(_ sender: UISlider) {
+        guard playerController.isCurrentSong(song) else { return }
+        playerController.rewindTime(to: Double(sender.value))
+    }
+    
+    private func toMinSec(_ seconds : Double) -> String {
+        let (_,  minf) = modf(seconds / 3600)
+        let (min, secf) = modf(60 * minf)
+        let seconds = Int(60 * secf)
+        return "\(Int(min)):\(seconds < 10 ? "0\(seconds)" : "\(seconds)")"
     }
     
     required init?(coder: NSCoder) {

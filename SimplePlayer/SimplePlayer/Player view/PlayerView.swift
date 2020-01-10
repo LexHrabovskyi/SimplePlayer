@@ -23,6 +23,28 @@ class PlayerView: UIView {
     private let volumeView = MPVolumeView()
     private let spinner = UIActivityIndicatorView()
     
+    func setSongName(_ name: String) {
+        songName.text = name
+    }
+    
+    func setPlayPauseIcon(isPlaying: Bool) {
+        playPauseButton.setIcon(isPlaying: isPlaying)
+    }
+    
+    func setSongLenght(_ lenght: String) {
+        songLenght.text = lenght
+    }
+    
+    func startSpinner() {
+        spinner.startAnimating()
+        songLenght.alpha = 0.01
+    }
+    
+    func stopSpinner() {
+        spinner.stopAnimating()
+        songLenght.alpha = 1
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setBackgroundColor()
@@ -127,6 +149,12 @@ class PlayerView: UIView {
             make.top.equalTo(slider.snp.bottom).offset(24)
             make.centerX.equalToSuperview()
             make.width.equalTo(slider)
+        }
+        
+        // MARK: spinner view
+        spinner.snp.makeConstraints { (make) in
+            make.centerX.equalTo(songLenght)
+            make.centerY.equalTo(songLenght)
         }
         
     }

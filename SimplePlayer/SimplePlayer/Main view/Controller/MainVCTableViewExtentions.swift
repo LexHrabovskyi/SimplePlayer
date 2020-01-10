@@ -14,6 +14,7 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let song = playlist.songList[indexPath.row]
         segueToPlayerView(song: song)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     private func segueToPlayerView(song: Song) {
