@@ -11,7 +11,7 @@ import SnapKit
 
 class SongCellView: UIView {
     
-    let playPauseButton = UIButton()
+    let playPauseButton = PlayPauseButton()
     private let songName = UILabel()
     private let spinner = UIActivityIndicatorView()
     
@@ -28,10 +28,7 @@ class SongCellView: UIView {
     }
     
     func setPlayPauseIcon(isPlaying: Bool) {
-        
-        let image = UIImage(systemName: isPlaying ? "pause" : "play")
-        playPauseButton.setImage(image, for: .normal)
-        
+        playPauseButton.setIcon(isPlaying: isPlaying)
     }
     
     func startSpinner() {
@@ -53,7 +50,7 @@ class SongCellView: UIView {
         
         addSubviews([playPauseButton, songName, spinner])
         
-        setPlayPauseIcon(isPlaying: false)
+        playPauseButton.setIcon(isPlaying: false)
         
         spinner.hidesWhenStopped = true
         spinner.style = .medium

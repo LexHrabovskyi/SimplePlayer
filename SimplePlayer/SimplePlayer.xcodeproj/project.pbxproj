@@ -10,6 +10,7 @@
 		A96F2A6DE444A0587FDB559D /* Pods_SimplePlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F901AEC50216A360591CADB /* Pods_SimplePlayer.framework */; };
 		D7111E0B23C8280D00DC81C2 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7111E0A23C8280D00DC81C2 /* PlayerViewController.swift */; };
 		D7111E0D23C8281900DC81C2 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7111E0C23C8281900DC81C2 /* PlayerView.swift */; };
+		D7111E0F23C83AD100DC81C2 /* PlayPauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7111E0E23C83AD100DC81C2 /* PlayPauseButton.swift */; };
 		D757F7F423C6E10E001BC2B0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D757F7F323C6E10E001BC2B0 /* MainView.swift */; };
 		D757F7F723C7072B001BC2B0 /* SongCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D757F7F623C7072B001BC2B0 /* SongCellController.swift */; };
 		D757F7FB23C7335B001BC2B0 /* CellReuseIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D757F7FA23C7335B001BC2B0 /* CellReuseIdentifiers.swift */; };
@@ -33,6 +34,7 @@
 		76E4D74D26F4E7B893044D5D /* Pods-SimplePlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplePlayer.release.xcconfig"; path = "Target Support Files/Pods-SimplePlayer/Pods-SimplePlayer.release.xcconfig"; sourceTree = "<group>"; };
 		D7111E0A23C8280D00DC81C2 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		D7111E0C23C8281900DC81C2 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		D7111E0E23C83AD100DC81C2 /* PlayPauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPauseButton.swift; sourceTree = "<group>"; };
 		D757F7F323C6E10E001BC2B0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D757F7F623C7072B001BC2B0 /* SongCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCellController.swift; sourceTree = "<group>"; };
 		D757F7FA23C7335B001BC2B0 /* CellReuseIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellReuseIdentifiers.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				D79A657B23BF8D4F000F3B09 /* AddSubviewsExtention.swift */,
 				D757F7FA23C7335B001BC2B0 /* CellReuseIdentifiers.swift */,
+				D7111E0E23C83AD100DC81C2 /* PlayPauseButton.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7111E0F23C83AD100DC81C2 /* PlayPauseButton.swift in Sources */,
 				D757F80123C74E3B001BC2B0 /* RemotePlayerControl.swift in Sources */,
 				D7E55F5523C2EF3000779D62 /* SongModel.swift in Sources */,
 				D757F7F423C6E10E001BC2B0 /* MainView.swift in Sources */,
