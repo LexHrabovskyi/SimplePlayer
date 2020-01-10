@@ -31,8 +31,14 @@ class PlayerView: UIView {
         playPauseButton.setIcon(isPlaying: isPlaying)
     }
     
-    func setSongLenght(_ lenght: String) {
-        songLenght.text = lenght
+    func setCurrentTime(_ time: Float, formatted: String) {
+        currentTime.text = formatted
+        slider.value = time
+    }
+    
+    func setSongLenght(_ lenght: Double, formatted: String) {
+        songLenght.text = formatted
+        slider.maximumValue = Float(lenght)
     }
     
     func startSpinner() {

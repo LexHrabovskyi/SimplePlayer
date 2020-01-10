@@ -17,12 +17,9 @@ final class AudioPlayer: AVPlayer, ObservableObject {
     @Published var currentTimeInSeconds: Double = 0.0
     @Published var isPlaying: Bool = false
     
+    // TODO: maybe I should delete this publishers
     let timePlayerStatusChanged = PassthroughSubject<AVPlayer.TimeControlStatus, Never>()
     let songDidEnd = ObservableObjectPublisher()
-    var timeChanged: AnyPublisher<Double, Never>  {
-        return $currentTimeInSeconds
-            .eraseToAnyPublisher()
-    }
     
     private var timeObserverToken: Any?
     

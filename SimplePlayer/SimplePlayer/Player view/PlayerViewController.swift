@@ -18,6 +18,7 @@ class PlayerViewController: UIViewController {
     private var songLenght: Double?
     private var loadingStatusSubscriber: AnyCancellable?
     private var playingSongSubscriber: AnyCancellable?
+    private var currentTimeSubscriber: AnyCancellable?
     
     init(song: Song, for playerCotroller: PlayerController) {
         self.playerController = playerCotroller
@@ -47,12 +48,13 @@ class PlayerViewController: UIViewController {
     private func addBindings() {
         
         loadingStatusSubscriber = playerController.loadingStatusChanged.sink { [weak self, song] notLoaded in
-            
+       
             guard self?.playerController.isCurrentSong(song) ?? false else { return }
             
-            self?.songLenght = self?.playerController.getPlayingDuration()
-            let songLenght = self?.toMinSec(self?.songLenght ?? 0) ?? "0:00"
-            self?.contentView.setSongLenght(songLenght)
+            if let lenght = self?.playerController.getPlayingDuration() {
+                let formattedLenght = self?.toMinSec(lenght) ?? "0:00"
+                self?.contentView.setSongLenght(lenght, formatted: formattedLenght)
+            }
             
             if notLoaded {
                 self?.contentView.startSpinner()
@@ -68,6 +70,14 @@ class PlayerViewController: UIViewController {
             } else {
                 self?.contentView.setPlayPauseIcon(isPlaying: false)
             }
+        }
+        
+        currentTimeSubscriber = playerController.timeChanged.sink { [weak self, song] value in
+            
+            guard self?.playerController.isCurrentSong(song) ?? false else { return }
+            
+            let formattedTime = self?.toMinSec(value) ?? "0:00"
+            self?.contentView.setCurrentTime(Float(value), formatted: formattedTime)
         }
         
     }

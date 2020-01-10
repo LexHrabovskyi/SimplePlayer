@@ -24,6 +24,11 @@ class PlayerController: ObservableObject {
         }.eraseToAnyPublisher()
     }
     
+    var timeChanged: AnyPublisher<Double, Never>  {
+        return player.$currentTimeInSeconds
+            .eraseToAnyPublisher()
+    }
+    
     let playlist: Playlist
     fileprivate let player: AudioPlayer
     private var remoteContol: RemotePlayerControl? = nil
