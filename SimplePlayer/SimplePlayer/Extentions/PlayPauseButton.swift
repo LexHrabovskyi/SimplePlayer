@@ -13,7 +13,8 @@ class PlayPauseButton: UIButton {
     
     func setIcon(isPlaying: Bool) {
         
-        let image = UIImage(systemName: isPlaying ? "pause" : "play")
+        let image = UIImage(systemName: isPlaying ? "pause" : "play.fill")
+        self.imageView?.contentMode = .scaleToFill
         self.setImage(image, for: .normal)
         
     }
