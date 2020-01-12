@@ -9,7 +9,6 @@
 import Foundation
 import AVKit
 import Combine
-import SwiftUI
 
 class PlayerController: ObservableObject {
     

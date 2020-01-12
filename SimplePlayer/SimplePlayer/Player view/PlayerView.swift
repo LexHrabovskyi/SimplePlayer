@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import MediaPlayer
 
-class PlayerView: UIView {
+final class PlayerView: UIView {
     
     // TODO: maybe better divide on 2 different views, like controls and slider
     let playPauseButton = PlayPauseButton()
@@ -82,7 +82,7 @@ class PlayerView: UIView {
         goForwardButton.setImage(goForwardImage, for: .normal)
         
         // some slider options?
-        songName.font = UIFont(name: "system", size: 36)
+        songName.font = UIFont.systemFont(ofSize: 36)
         songName.textAlignment = .center
         songName.numberOfLines = 0
         songName.text = "Undefined"

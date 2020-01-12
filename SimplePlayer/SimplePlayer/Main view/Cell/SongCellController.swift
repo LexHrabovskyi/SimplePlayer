@@ -9,7 +9,7 @@
 import UIKit
 import Combine
 
-class SongCellController: UITableViewCell {
+final class SongCellController: UITableViewCell {
     
     private var song: Song?
     private var playerController: PlayerController?
@@ -49,18 +49,19 @@ class SongCellController: UITableViewCell {
         }
         
         playingSongSubscriber = playerController?.playingSongPublisher.sink { [weak self, song] value in
-            guard self != nil else { return }
+            guard let self = self else { return }
             if value.1 && value.0 == song {
-                self?.content?.setPlayPauseIcon(isPlaying: true)
+                self.content?.setPlayPauseIcon(isPlaying: true)
             } else {
-                self?.content?.setPlayPauseIcon(isPlaying: false)
+                self.content?.setPlayPauseIcon(isPlaying: false)
             }
         }
         
     }
     
     @objc private func playPauseMusic(_ sender: UIButton) {
-        playerController?.playOrPause(song: song!)
+        guard let song = song else { return }
+        playerController?.playOrPause(song: song)
     }
     
     override func awakeFromNib() {

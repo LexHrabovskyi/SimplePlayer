@@ -8,7 +8,6 @@
 
 import Foundation
 import AVKit
-import SwiftUI
 import Combine
 
 final class AudioPlayer: AVPlayer, ObservableObject {

@@ -9,7 +9,7 @@
 import UIKit
 import Combine
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
     let playerController: PlayerController
     var playlist: Playlist { return playerController.playlist }
@@ -46,10 +46,10 @@ class MainViewController: UIViewController {
     private func setUpBindings() {
         
         songBatchSubscriber = playlist.newSongBatch.sink { [weak self] songBatch in
-            guard self != nil else { return }
-            self?.contentView.stopSpinner()
-            let newIndexPaths = self!.getAddedIndexPaths(songBatch.count)
-            self?.contentView.tableView.insertRows(at: newIndexPaths, with: .fade)
+            guard let self = self else { return }
+            self.contentView.stopSpinner()
+            let newIndexPaths = self.getAddedIndexPaths(songBatch.count)
+            self.contentView.tableView.insertRows(at: newIndexPaths, with: .fade)
         }
         
     }

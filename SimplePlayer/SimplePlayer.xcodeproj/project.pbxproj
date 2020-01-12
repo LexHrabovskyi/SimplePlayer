@@ -17,6 +17,7 @@
 		D757F7FD23C74D9D001BC2B0 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D757F7FC23C74D9D001BC2B0 /* AudioPlayer.swift */; };
 		D757F7FF23C74E35001BC2B0 /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D757F7FE23C74E35001BC2B0 /* PlayerController.swift */; };
 		D757F80123C74E3B001BC2B0 /* RemotePlayerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D757F80023C74E3B001BC2B0 /* RemotePlayerControl.swift */; };
+		D773ABAE23C8DA0B0014AA4C /* SimplePlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D773ABAD23C8DA0B0014AA4C /* SimplePlayerTests.swift */; };
 		D79A657A23BF8BEC000F3B09 /* SongCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A657923BF8BEC000F3B09 /* SongCellView.swift */; };
 		D79A657C23BF8D4F000F3B09 /* AddSubviewsExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A657B23BF8D4F000F3B09 /* AddSubviewsExtention.swift */; };
 		D79A657F23BF8FAE000F3B09 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A657E23BF8FAE000F3B09 /* Playlist.swift */; };
@@ -27,6 +28,16 @@
 		D7E55F5523C2EF3000779D62 /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E55F5423C2EF3000779D62 /* SongModel.swift */; };
 		D7E55F5723C30BA300779D62 /* MainVCTableViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E55F5623C30BA300779D62 /* MainVCTableViewExtentions.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D773ABB023C8DA0B0014AA4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7DBC65E23BF881B006FB0E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D7DBC66523BF881B006FB0E7;
+			remoteInfo = SimplePlayer;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1DAADD85CF671FA3C89109FE /* Pods-SimplePlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplePlayer.debug.xcconfig"; path = "Target Support Files/Pods-SimplePlayer/Pods-SimplePlayer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -41,6 +52,9 @@
 		D757F7FC23C74D9D001BC2B0 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		D757F7FE23C74E35001BC2B0 /* PlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
 		D757F80023C74E3B001BC2B0 /* RemotePlayerControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemotePlayerControl.swift; sourceTree = "<group>"; };
+		D773ABAB23C8DA0B0014AA4C /* SimplePlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimplePlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D773ABAD23C8DA0B0014AA4C /* SimplePlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePlayerTests.swift; sourceTree = "<group>"; };
+		D773ABAF23C8DA0B0014AA4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D79A657923BF8BEC000F3B09 /* SongCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCellView.swift; sourceTree = "<group>"; };
 		D79A657B23BF8D4F000F3B09 /* AddSubviewsExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubviewsExtention.swift; sourceTree = "<group>"; };
 		D79A657E23BF8FAE000F3B09 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
@@ -55,6 +69,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D773ABA823C8DA0B0014AA4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D7DBC66323BF881B006FB0E7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -92,6 +113,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		D773ABAC23C8DA0B0014AA4C /* SimplePlayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				D773ABAD23C8DA0B0014AA4C /* SimplePlayerTests.swift */,
+				D773ABAF23C8DA0B0014AA4C /* Info.plist */,
+			);
+			path = SimplePlayerTests;
+			sourceTree = "<group>";
+		};
 		D79A657623BF8B96000F3B09 /* Main view */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				D7DBC66823BF881B006FB0E7 /* SimplePlayer */,
+				D773ABAC23C8DA0B0014AA4C /* SimplePlayerTests */,
 				D7DBC66723BF881B006FB0E7 /* Products */,
 				FF61872113850AAC04CB796A /* Pods */,
 				4D24598ED6D104E2175A4873 /* Frameworks */,
@@ -126,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				D7DBC66623BF881B006FB0E7 /* SimplePlayer.app */,
+				D773ABAB23C8DA0B0014AA4C /* SimplePlayerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,6 +218,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D773ABAA23C8DA0B0014AA4C /* SimplePlayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D773ABB423C8DA0B0014AA4C /* Build configuration list for PBXNativeTarget "SimplePlayerTests" */;
+			buildPhases = (
+				D773ABA723C8DA0B0014AA4C /* Sources */,
+				D773ABA823C8DA0B0014AA4C /* Frameworks */,
+				D773ABA923C8DA0B0014AA4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D773ABB123C8DA0B0014AA4C /* PBXTargetDependency */,
+			);
+			name = SimplePlayerTests;
+			productName = SimplePlayerTests;
+			productReference = D773ABAB23C8DA0B0014AA4C /* SimplePlayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D7DBC66523BF881B006FB0E7 /* SimplePlayer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7DBC67A23BF881D006FB0E7 /* Build configuration list for PBXNativeTarget "SimplePlayer" */;
@@ -211,10 +261,14 @@
 		D7DBC65E23BF881B006FB0E7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Александр";
 				TargetAttributes = {
+					D773ABAA23C8DA0B0014AA4C = {
+						CreatedOnToolsVersion = 11.2;
+						TestTargetID = D7DBC66523BF881B006FB0E7;
+					};
 					D7DBC66523BF881B006FB0E7 = {
 						CreatedOnToolsVersion = 11.0;
 					};
@@ -234,11 +288,19 @@
 			projectRoot = "";
 			targets = (
 				D7DBC66523BF881B006FB0E7 /* SimplePlayer */,
+				D773ABAA23C8DA0B0014AA4C /* SimplePlayerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D773ABA923C8DA0B0014AA4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D7DBC66423BF881B006FB0E7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -293,6 +355,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D773ABA723C8DA0B0014AA4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D773ABAE23C8DA0B0014AA4C /* SimplePlayerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D7DBC66223BF881B006FB0E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -318,6 +388,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D773ABB123C8DA0B0014AA4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D7DBC66523BF881B006FB0E7 /* SimplePlayer */;
+			targetProxy = D773ABB023C8DA0B0014AA4C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		D7DBC67423BF881D006FB0E7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -330,6 +408,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D773ABB223C8DA0B0014AA4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CH744BWJLN;
+				INFOPLIST_FILE = SimplePlayerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lexhrabovskyi.SimplePlayer.SimplePlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimplePlayer.app/SimplePlayer";
+			};
+			name = Debug;
+		};
+		D773ABB323C8DA0B0014AA4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CH744BWJLN;
+				INFOPLIST_FILE = SimplePlayerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lexhrabovskyi.SimplePlayer.SimplePlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimplePlayer.app/SimplePlayer";
+			};
+			name = Release;
+		};
 		D7DBC67823BF881D006FB0E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -487,6 +607,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D773ABB423C8DA0B0014AA4C /* Build configuration list for PBXNativeTarget "SimplePlayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D773ABB223C8DA0B0014AA4C /* Debug */,
+				D773ABB323C8DA0B0014AA4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D7DBC66123BF881B006FB0E7 /* Build configuration list for PBXProject "SimplePlayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

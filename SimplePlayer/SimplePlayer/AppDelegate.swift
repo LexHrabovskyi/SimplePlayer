@@ -18,15 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         prepareAudioSession()
         let playerController = preparePlayerController()
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UINavigationController(rootViewController: MainViewController(viewModel: playerController))
-        window?.makeKeyAndVisible()
+        prepareWindow(with: playerController)
         
         return true
     }
     
-    // TODO: think do I need this here?
     private func prepareAudioSession() {
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.interruptSpokenAudioAndMixWithOthers, .allowBluetooth])
@@ -43,6 +39,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let playerController = PlayerController(player: audioPlayer, for: playlist)
         
         return playerController
+        
+    }
+    
+    private func prepareWindow(with playerController: PlayerController) {
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = UINavigationController(rootViewController: MainViewController(viewModel: playerController))
+        window?.makeKeyAndVisible()
         
     }
 

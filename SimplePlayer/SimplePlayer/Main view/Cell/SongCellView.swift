@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class SongCellView: UIView {
+final class SongCellView: UIView {
     
     let playPauseButton = PlayPauseButton()
     private let songName = UILabel()

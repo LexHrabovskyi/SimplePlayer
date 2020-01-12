@@ -49,35 +49,35 @@ class PlayerViewController: UIViewController {
         
         loadingStatusSubscriber = playerController.loadingStatusChanged.sink { [weak self, song] notLoaded in
        
-            guard self?.playerController.isCurrentSong(song) ?? false else { return }
+            guard let self = self, self.playerController.isCurrentSong(song) else { return }
             
-            if let lenght = self?.playerController.getPlayingDuration() {
-                let formattedLenght = self?.toMinSec(lenght) ?? "0:00"
-                self?.contentView.setSongLenght(lenght, formatted: formattedLenght)
+            if let lenght = self.playerController.getPlayingDuration() {
+                let formattedLenght = self.toMinSec(lenght)
+                self.contentView.setSongLenght(lenght, formatted: formattedLenght)
             }
             
             if notLoaded {
-                self?.contentView.startSpinner()
+                self.contentView.startSpinner()
             } else {
-                self?.contentView.stopSpinner()
+                self.contentView.stopSpinner()
             }
         }
         
         playingSongSubscriber = playerController.playingSongPublisher.sink { [weak self, song] value in
-            guard self != nil else { return }
+            guard let self = self else { return }
             if value.1 && value.0 == song {
-                self?.contentView.setPlayPauseIcon(isPlaying: true)
+                self.contentView.setPlayPauseIcon(isPlaying: true)
             } else {
-                self?.contentView.setPlayPauseIcon(isPlaying: false)
+                self.contentView.setPlayPauseIcon(isPlaying: false)
             }
         }
         
         currentTimeSubscriber = playerController.timeChanged.sink { [weak self, song] value in
             
-            guard self?.playerController.isCurrentSong(song) ?? false else { return }
+            guard let self = self, self.playerController.isCurrentSong(song) else { return }
             
-            let formattedTime = self?.toMinSec(value) ?? "0:00"
-            self?.contentView.setCurrentTime(Float(value), formatted: formattedTime)
+            let formattedTime = self.toMinSec(value)
+            self.contentView.setCurrentTime(Float(value), formatted: formattedTime)
         }
         
     }
