@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         prepareAudioSession()
         let playerController = preparePlayerController()
         prepareWindow(with: playerController)
+        disableSnapKitContstraitErrorMessages()
         
         return true
     }
@@ -48,6 +49,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = UINavigationController(rootViewController: MainViewController(viewModel: playerController))
         window?.makeKeyAndVisible()
         
+    }
+    
+    private func disableSnapKitContstraitErrorMessages() {
+        UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
     }
 
 

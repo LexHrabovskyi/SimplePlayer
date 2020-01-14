@@ -59,10 +59,18 @@ final class SongCellView: UIView {
     
     private func setUpConstraints() {
         
+        self.snp.makeConstraints { (make) in
+            make.height.equalTo(44)
+        }
+        
         playPauseButton.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().inset(16)
-            make.height.width.equalTo(20)
+            make.width.equalTo(32)
+        }
+        
+        playPauseButton.imageView?.snp.makeConstraints { (make) in
+            make.height.width.equalTo(32)
         }
         
         songName.snp.makeConstraints { (make) in
