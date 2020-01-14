@@ -12,7 +12,7 @@ import Combine
 final class SongCellController: UITableViewCell {
     
     private var song: Song?
-    private var playerController: PlayerController?
+    private var playerManager: PlayerManager?
     private var content: SongCellView?
     
     private var loadingStatusSubscriber: AnyCancellable?
@@ -22,9 +22,9 @@ final class SongCellController: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    func setSong(_ song: Song, inController controller: PlayerController) {
+    func setSong(_ song: Song, inController controller: PlayerManager) {
         self.song = song
-        self.playerController = controller
+        self.playerManager = controller
         self.content = SongCellView()
         content?.setSongName(song.name)
         content?.putContent(on: contentView)
@@ -37,9 +37,9 @@ final class SongCellController: UITableViewCell {
     
     private func addBindings() {
         
-        loadingStatusSubscriber = playerController?.loadingStatusChanged.sink { [weak self, song] notLoaded in
+        loadingStatusSubscriber = playerManager?.loadingStatusChanged.sink { [weak self, song] notLoaded in
             
-            guard let currentSong = self?.playerController?.getCurrentSong(), song == currentSong else { return }
+            guard let currentSong = self?.playerManager?.getCurrentSong(), song == currentSong else { return }
             
             if notLoaded {
                 self?.content?.startSpinner()
@@ -48,7 +48,7 @@ final class SongCellController: UITableViewCell {
             }
         }
         
-        playingSongSubscriber = playerController?.playingSongPublisher.sink { [weak self, song] value in
+        playingSongSubscriber = playerManager?.playingSongPublisher.sink { [weak self, song] value in
             guard let self = self else { return }
             if value.1 && value.0 == song {
                 self.content?.setPlayPauseIcon(isPlaying: true)
@@ -61,7 +61,7 @@ final class SongCellController: UITableViewCell {
     
     @objc private func playPauseMusic(_ sender: UIButton) {
         guard let song = song else { return }
-        playerController?.playOrPause(song: song)
+        playerManager?.playOrPause(song: song)
     }
     
     override func awakeFromNib() {
@@ -73,7 +73,7 @@ final class SongCellController: UITableViewCell {
         super.prepareForReuse()
         
         content?.removeFromSuperview()
-        playerController = nil
+        playerManager = nil
         loadingStatusSubscriber = nil
         
     }

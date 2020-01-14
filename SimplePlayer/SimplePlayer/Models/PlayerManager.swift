@@ -10,7 +10,7 @@ import Foundation
 import AVKit
 import Combine
 
-class PlayerController: ObservableObject {
+class PlayerManager: ObservableObject {
     
     @Published var isLoading: Bool = false
     var loadingStatusChanged: AnyPublisher<Bool, Never>  {
@@ -108,7 +108,7 @@ class PlayerController: ObservableObject {
 }
 
 // MARK: extention for remote contols
-extension PlayerController {
+extension PlayerManager {
     
     var isPlaying: Bool {
         return player.isPlaying

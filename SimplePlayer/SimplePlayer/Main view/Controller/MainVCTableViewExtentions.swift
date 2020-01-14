@@ -18,7 +18,7 @@ extension MainViewController: UITableViewDelegate {
     }
     
     private func segueToPlayerView(song: Song) {
-        let playerVC = PlayerViewController(song: song, for: playerController)
+        let playerVC = PlayerViewController(song: song, for: playerManager)
         navigationController?.pushViewController(playerVC, animated: true)
     }
     
@@ -39,7 +39,7 @@ extension MainViewController: UITableViewDataSource {
         let cell = contentView.tableView.dequeueReusableCell(withIdentifier: CellReuseIdentifiers.mainViewCell, for: indexPath) as! SongCellController
         
         let song = playlist.songList[indexPath.row]
-        cell.setSong(song, inController: playerController)
+        cell.setSong(song, inController: playerManager)
         return cell
         
     }

@@ -32,17 +32,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    private func preparePlayerController() -> PlayerController {
+    private func preparePlayerController() -> PlayerManager {
         
         let audioPlayer = AudioPlayer()
         let playlist = Playlist()
-        let playerController = PlayerController(player: audioPlayer, for: playlist)
+        let playerController = PlayerManager(player: audioPlayer, for: playlist)
         
         return playerController
         
     }
     
-    private func prepareWindow(with playerController: PlayerController) {
+    private func prepareWindow(with playerController: PlayerManager) {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: MainViewController(viewModel: playerController))

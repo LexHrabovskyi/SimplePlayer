@@ -11,7 +11,7 @@ import Combine
 
 class PlayerViewController: UIViewController {
     
-    let playerController: PlayerController
+    let playerManager: PlayerManager
     private var song: Song
     private var contentView: PlayerView { return view as! PlayerView }
     
@@ -20,8 +20,8 @@ class PlayerViewController: UIViewController {
     private var playingSongSubscriber: AnyCancellable?
     private var currentTimeSubscriber: AnyCancellable?
     
-    init(song: Song, for playerCotroller: PlayerController) {
-        self.playerController = playerCotroller
+    init(song: Song, for playerCotroller: PlayerManager) {
+        self.playerManager = playerCotroller
         self.song = song
         super.init(nibName: nil, bundle: nil)
     }
@@ -47,11 +47,11 @@ class PlayerViewController: UIViewController {
     
     private func addBindings() {
         
-        loadingStatusSubscriber = playerController.loadingStatusChanged.sink { [weak self, song] notLoaded in
+        loadingStatusSubscriber = playerManager.loadingStatusChanged.sink { [weak self, song] notLoaded in
        
-            guard let self = self, self.playerController.isCurrentSong(song) else { return }
+            guard let self = self, self.playerManager.isCurrentSong(song) else { return }
             
-            if let lenght = self.playerController.getPlayingDuration() {
+            if let lenght = self.playerManager.getPlayingDuration() {
                 let formattedLenght = self.toMinSec(lenght)
                 self.contentView.setSongLenght(lenght, formatted: formattedLenght)
             }
@@ -63,7 +63,7 @@ class PlayerViewController: UIViewController {
             }
         }
         
-        playingSongSubscriber = playerController.playingSongPublisher.sink { [weak self, song] value in
+        playingSongSubscriber = playerManager.playingSongPublisher.sink { [weak self, song] value in
             guard let self = self else { return }
             if value.1 && value.0 == song {
                 self.contentView.setPlayPauseIcon(isPlaying: true)
@@ -72,9 +72,9 @@ class PlayerViewController: UIViewController {
             }
         }
         
-        currentTimeSubscriber = playerController.timeChanged.sink { [weak self, song] value in
+        currentTimeSubscriber = playerManager.timeChanged.sink { [weak self, song] value in
             
-            guard let self = self, self.playerController.isCurrentSong(song) else { return }
+            guard let self = self, self.playerManager.isCurrentSong(song) else { return }
             
             let formattedTime = self.toMinSec(value)
             self.contentView.setCurrentTime(Float(value), formatted: formattedTime)
@@ -83,24 +83,24 @@ class PlayerViewController: UIViewController {
     }
     
     @objc private func playPauseSong() {
-        playerController.playOrPause(song: song)
+        playerManager.playOrPause(song: song)
         guard songLenght == nil else { return }
         contentView.startSpinner()
     }
     
     @objc private func backward15Sec() {
-        guard playerController.isCurrentSong(song) else { return }
-        playerController.backward15Sec()
+        guard playerManager.isCurrentSong(song) else { return }
+        playerManager.backward15Sec()
     }
     
     @objc private func forward15Sec() {
-        guard playerController.isCurrentSong(song) else { return }
-        playerController.forward15Sec()
+        guard playerManager.isCurrentSong(song) else { return }
+        playerManager.forward15Sec()
     }
     
     @objc private func rewindTime(_ sender: UISlider) {
-        guard playerController.isCurrentSong(song) else { return }
-        playerController.rewindTime(to: Double(sender.value))
+        guard playerManager.isCurrentSong(song) else { return }
+        playerManager.rewindTime(to: Double(sender.value))
     }
     
     private func toMinSec(_ seconds : Double) -> String {

@@ -11,11 +11,11 @@ import MediaPlayer
 
 final class RemotePlayerControl {
     
-    private var playerController: PlayerController?
+    private var playerManager: PlayerManager?
     private var wasInterrupted = false
     
-    init(forController playerController: PlayerController) {
-        self.playerController = playerController
+    init(forController playerController: PlayerManager) {
+        self.playerManager = playerController
         setupRemoteTransportControls()
     }
     
@@ -28,40 +28,40 @@ final class RemotePlayerControl {
         commandCenter.seekBackwardCommand.isEnabled = true
         commandCenter.previousTrackCommand.isEnabled = false
         
-        commandCenter.playCommand.addTarget { [unowned playerController] event in
+        commandCenter.playCommand.addTarget { [unowned playerManager] event in
             
-            let isSuccess = playerController?.remotePlay() ?? false
+            let isSuccess = playerManager?.remotePlay() ?? false
             return isSuccess ? .success : .commandFailed
             
         }
         
-        commandCenter.pauseCommand.addTarget { [unowned playerController] event in
+        commandCenter.pauseCommand.addTarget { [unowned playerManager] event in
             
-            let isSuccess = playerController?.remotePause() ?? false
+            let isSuccess = playerManager?.remotePause() ?? false
             return isSuccess ? .success : .commandFailed
             
         }
         
-        commandCenter.seekBackwardCommand.addTarget { [unowned playerController] event in
+        commandCenter.seekBackwardCommand.addTarget { [unowned playerManager] event in
             
-            guard let controller = playerController else { return .commandFailed }
+            guard let controller = playerManager else { return .commandFailed }
             controller.backward15Sec()
             return .success
             
         }
         
-        commandCenter.seekForwardCommand.addTarget { [unowned playerController] event in
+        commandCenter.seekForwardCommand.addTarget { [unowned playerManager] event in
             
-            guard let controller = playerController else { return .commandFailed }
+            guard let controller = playerManager else { return .commandFailed }
             controller.forward15Sec()
             return .success
         }
         
-        commandCenter.changePlaybackPositionCommand.addTarget { [unowned playerController] event in
+        commandCenter.changePlaybackPositionCommand.addTarget { [unowned playerManager] event in
             
             if let positionChangeEvent = event as? MPChangePlaybackPositionCommandEvent {
                 let time = positionChangeEvent.positionTime
-                playerController?.rewindTime(to: time)
+                playerManager?.rewindTime(to: time)
                 return .success
             }
 
@@ -76,14 +76,14 @@ final class RemotePlayerControl {
         let nowPlayingInfoCenter = MPNowPlayingInfoCenter.default()
         var nowPlayingInfo = nowPlayingInfoCenter.nowPlayingInfo ?? [String: Any]()
         
-        let song = playerController!.getCurrentSong()
+        let song = playerManager!.getCurrentSong()
         nowPlayingInfo[MPNowPlayingInfoPropertyExternalUserProfileIdentifier] = "Simple Player"
         nowPlayingInfo[MPMediaItemPropertyTitle] = "Simple Player"
         nowPlayingInfo[MPMediaItemPropertyAlbumTitle] = song?.url ?? "no url"
-        nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = playerController!.isPlaying
+        nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = playerManager!.isPlaying
         nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = 0.0
         
-        if let durationInSeconds = playerController?.getPlayingDuration() {
+        if let durationInSeconds = playerManager?.getPlayingDuration() {
             nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = durationInSeconds
         }
         
