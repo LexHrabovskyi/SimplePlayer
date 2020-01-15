@@ -14,11 +14,11 @@ class SimplePlayerTests: XCTestCase {
 
     var playerManager: PlayerManager!
     var playlist: Playlist!
-    var audioPlayer: AudioPlayer!
+    var audioPlayer: AudioPlayerMOCK!
     
     override func setUp() {
         super.setUp()
-        audioPlayer = AudioPlayer()
+        audioPlayer = AudioPlayerMOCK()
         playlist = Playlist()
         playerManager = PlayerManager(player: audioPlayer, for: playlist)
     }
@@ -58,6 +58,7 @@ class SimplePlayerTests: XCTestCase {
         let expectBeginPlaying = expectation(description: "now playing")
         let expectEndPlaying = expectation(description: "not playing")
         let expectContinuePlaying = expectation(description: "continue playing")
+        let expectChangeSong = expectation(description: "changing song, which must play")
         var testStep = 0
         
         let subscriber = audioPlayer.$isPlaying.sink { _ in
@@ -71,6 +72,10 @@ class SimplePlayerTests: XCTestCase {
                 expectEndPlaying.fulfill()
             case 3:
                 expectContinuePlaying.fulfill()
+            case 4:
+                print("MOCK audio toggles twice")
+            case 5:
+                expectChangeSong.fulfill()
             default:
                 fatalError("unexpected step")
             }
@@ -79,20 +84,23 @@ class SimplePlayerTests: XCTestCase {
             
         }
         
-        // TODO: delete dependencies
-        let testSong = Song(id: 1000, name: "test1", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")
-        playerManager.playOrPause(song: testSong)
+        let firstSong = SongMOCK.song1
+        playerManager.playOrPause(song: firstSong)
         wait(for: [expectBeginPlaying], timeout: 1)
         XCTAssertTrue(audioPlayer.isPlaying)
         
-        playerManager.playOrPause(song: testSong)
+        playerManager.playOrPause(song: firstSong)
         wait(for: [expectEndPlaying], timeout: 1)
         XCTAssertFalse(audioPlayer.isPlaying)
         
-        playerManager.playOrPause(song: testSong)
+        playerManager.playOrPause(song: firstSong)
         wait(for: [expectContinuePlaying], timeout: 1)
         XCTAssertTrue(audioPlayer.isPlaying)
         
+        let secondSong = SongMOCK.song2
+        playerManager.playOrPause(song: secondSong)
+        wait(for: [expectChangeSong], timeout: 1)
+        XCTAssertTrue(audioPlayer.isPlaying)
         
     }
     
@@ -119,8 +127,7 @@ class SimplePlayerTests: XCTestCase {
             
         }
         
-        // TODO: delete dependencies
-        let testSong = Song(id: 1000, name: "test1", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")
+        let testSong = SongMOCK.song1
         playerManager.playOrPause(song: testSong)
         wait(for: [expectLoadingDidBegin], timeout: 1)
         XCTAssertTrue(playerManager.isLoading)
