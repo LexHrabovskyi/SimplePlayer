@@ -71,8 +71,8 @@ class PlayerManager: ObservableObject {
     
     func forward15Sec() {
         
+        guard let songLenght = player.currentItem?.duration.seconds else { return }
         let currentTime = player.currentTimeInSeconds
-        let songLenght = player.currentItem!.duration.seconds // TODO: need fix
         let forwardTime = songLenght > currentTime + 15.0 ? currentTime + 15.0 : songLenght
         
         rewindTime(to: forwardTime)
